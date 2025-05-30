@@ -35,7 +35,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       userType = prefs.getString("user_type")!;
     });
 
-    //NetworkHelper().getSwo(accessToken);
+    NetworkHelper().getSwo(accessToken);
   }
 
 

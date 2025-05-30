@@ -40,5 +40,32 @@ class NetworkHelper{
     return statusCode;
   }
 
+  Future<int> getSwo(String accessToken) async{
+    int statusCode = 0;
+    final response = await http.get(
+      Uri.parse('https://stage.ttl.ciot.my/api/swo'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'Bearer $accessToken'   // Send authorization headers to the backend.
+      },
+
+    );
+
+    statusCode = response.statusCode;
+
+    if (response.statusCode == 200) {
+      // Process the json individually, since the json response is complex
+      var jsonResponse = jsonDecode(response.body);
+      for(var jsonObj in jsonResponse['data']){
+        log("swo_no: ${jsonObj['swo_no']}");
+      }
+    } else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      log("statusCode: $statusCode");
+    }
+
+    return statusCode;
+  }
 
 }
