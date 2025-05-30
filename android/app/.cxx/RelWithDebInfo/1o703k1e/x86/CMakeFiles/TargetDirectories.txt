@@ -1,0 +1,2 @@
+/Users/cre8iotimac/Desktop/ActiveProjects/Flutter/ttl_sales_and_rental/android/app/.cxx/RelWithDebInfo/1o703k1e/x86/CMakeFiles/edit_cache.dir
+/Users/cre8iotimac/Desktop/ActiveProjects/Flutter/ttl_sales_and_rental/android/app/.cxx/RelWithDebInfo/1o703k1e/x86/CMakeFiles/rebuild_cache.dir
