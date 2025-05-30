@@ -27,8 +27,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     //dummy initial value
-    usernameController.text = "nabilla@cre8iot.com";
-    passwordController.text = "password";
+    //usernameController.text = "nabilla@cre8iot.com";
+    //passwordController.text = "password";
 
     initSharedPref();
     super.initState();
