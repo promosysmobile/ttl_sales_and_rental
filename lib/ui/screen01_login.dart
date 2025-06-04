@@ -27,10 +27,11 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     //dummy initial value
-    //usernameController.text = "nabilla@cre8iot.com";
-    //passwordController.text = "password";
+    usernameController.text = "nabilla@cre8iot.com";
+    passwordController.text = "password";
 
     initSharedPref();
+
     super.initState();
   }
 
@@ -51,14 +52,14 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               const SizedBox(height: 200,),
               Text(
-                  "TTL Sales & Rental \n Sdn Bhd",
-                  style: TextStyle(
-                    decoration: TextDecoration.none,
-                    color: Colors.white,
-                    fontFamily: 'Poppins',
-                    fontSize: 17,
-                    fontWeight: FontWeight.w500,
-                  ),
+                "TTL Sales & Rental \n Sdn Bhd",
+                style: TextStyle(
+                  decoration: TextDecoration.none,
+                  color: Colors.white,
+                  fontFamily: 'Poppins',
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 50,),

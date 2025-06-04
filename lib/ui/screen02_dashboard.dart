@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ttl_sales_and_rental/app_data.dart';
@@ -19,6 +21,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   late SharedPreferences prefs;
 
+  int intCompletedTask = 0;
+  int intInProgressTask = 0;
+
   @override
   void initState() {
     initSharedPref();
@@ -33,9 +38,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
       userName = prefs.getString("user_name")!;
       userEmail = prefs.getString("user_email")!;
       userType = prefs.getString("user_type")!;
+
     });
 
-    NetworkHelper().getSwo(accessToken);
+    allSwoTasks = await NetworkHelper().getSwo(accessToken);
+
+    setState(() {
+      intInProgressTask = 0;
+      intCompletedTask = 0;
+
+      for(var swoTask in allSwoTasks){
+
+        for(var theTask in swoTask.ttlTasks){
+          if(theTask.taskStatusUuid == strTaskAssignedCode){
+            assignedSwoTasks.add(swoTask);
+            intInProgressTask += 1;
+            break;
+          }else if(theTask.taskStatusUuid == strTaskInProgressCode){
+            inProgressSwoTasks.add(swoTask);
+            intInProgressTask += 1;
+            break;
+          }else if(theTask.taskStatusUuid == strTaskPendingCode){
+            pendingSwoTasks.add(swoTask);
+            intInProgressTask += 1;
+            break;
+          }else if(theTask.taskStatusUuid == strTaskCompletedCode){
+            completedSwoTasks.add(swoTask);
+            intCompletedTask += 1;
+            break;
+          }
+
+        }
+      }
+    });
+
+
+
   }
 
 
@@ -160,7 +198,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       ),
                                     ),
                                     Text(
-                                      "8",
+                                      intCompletedTask.toString(),
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
@@ -204,7 +242,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       ),
                                     ),
                                     Text(
-                                      "8",
+                                      intInProgressTask.toString(),
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,

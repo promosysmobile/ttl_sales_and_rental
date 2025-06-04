@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:ttl_sales_and_rental/ui/components/card_assigned_task.dart';
 import 'package:ttl_sales_and_rental/ui/components/card_in_progress.dart';
+
+import '../app_data.dart';
 
 class PendingTaskScreen extends StatefulWidget {
   const PendingTaskScreen({super.key});
@@ -219,9 +223,9 @@ class _PendingTaskScreenState extends State<PendingTaskScreen> {
                               child: ListView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
-                                itemCount: 4,
+                                itemCount: assignedSwoTasks.length,
                                 itemBuilder: (context, index) {
-                                  return CardAssignedTask();
+                                  return CardAssignedTask(mySwoModel: assignedSwoTasks[index],);
                                 },
                               ),
                             )
@@ -230,7 +234,7 @@ class _PendingTaskScreenState extends State<PendingTaskScreen> {
                               child: ListView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
-                                itemCount: 1,
+                                itemCount: inProgressSwoTasks.length,
                                 itemBuilder: (context, index) {
                                   return CardInProgress();
                                 },

@@ -1,7 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:ttl_sales_and_rental/model/get_swo_model/get_swo_model.dart';
 
 class CardAssignedTask extends StatefulWidget {
-  const CardAssignedTask({super.key});
+
+  GetSwoModel mySwoModel;
+
+  CardAssignedTask({super.key, required this.mySwoModel});
 
   @override
   State<CardAssignedTask> createState() => _CardAssignedTaskState();
@@ -26,7 +32,7 @@ class _CardAssignedTaskState extends State<CardAssignedTask> {
               Row(
                 children: [
                   Text(
-                    "SWO-ES-00123",
+                    widget.mySwoModel.swoNumber,
                     style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
@@ -45,7 +51,7 @@ class _CardAssignedTaskState extends State<CardAssignedTask> {
                       padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
                       child: Center(
                         child: Text(
-                          "RS",
+                          widget.mySwoModel.swoTypeName,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -81,8 +87,8 @@ class _CardAssignedTaskState extends State<CardAssignedTask> {
                   ),
                 ],
               ),
-              const Text(
-                  "PG02075",
+              Text(
+                  widget.mySwoModel.equipmentNoName,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14,
@@ -91,7 +97,7 @@ class _CardAssignedTaskState extends State<CardAssignedTask> {
               ),
               const SizedBox(height: 1,),
               Text(
-                  "12/08/2024",
+                  widget.mySwoModel.createdAt.toString().replaceAll("T", " "),
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -129,22 +135,28 @@ class _CardAssignedTaskState extends State<CardAssignedTask> {
                   ),
                   SizedBox(width: 8,),
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Color(0xffdddddd),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
-                        child: Center(
-                          child: Text(
-                            "New Task",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              height: 0,
+                    child: GestureDetector(
+                      onTap: (){
+                        log("TaskType: ${widget.mySwoModel.swoTypeName}");
+
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xffdddddd),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                          child: Center(
+                            child: Text(
+                              "New Task",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                                height: 0,
+                              ),
                             ),
                           ),
                         ),
