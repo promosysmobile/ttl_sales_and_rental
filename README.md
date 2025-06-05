@@ -1,16 +1,27 @@
-# ttl_sales_and_rental
+# Mobile App TTL API
 
-A new Flutter project.
+1) Login
+   - URL:https://stage.ttl.ciot.my/api/auth/login
+   - Method:POST
+   - Request Json:
+  
+     <img width="283" alt="Screenshot 2025-06-05 at 9 04 16 AM" src="https://github.com/user-attachments/assets/0384a6d5-a3ab-4afd-8ce5-a46e8169d8f1" />
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+   - Result Json:
+  
+     <img width="692" alt="Screenshot 2025-06-05 at 9 03 40 AM" src="https://github.com/user-attachments/assets/308c066d-a9d3-48bc-b746-97ad2f325e73" />
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   - Access token needed to request other api calls.
+   - The access token for other api calls is passed in Headers, under the Authorization field.
+   - Bearer {access_token}
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2) Get SWO
+   - Display list of SWO
+   - Use SWO api
+   - URL: https://dev.ttl.ciot.my/api/swo
+   - Method: GET
+
+3) Update IQC Checklist
+
