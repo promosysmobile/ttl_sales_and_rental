@@ -138,7 +138,9 @@ class _CardAssignedTaskState extends State<CardAssignedTask> {
                     child: GestureDetector(
                       onTap: (){
                         log("TaskType: ${widget.mySwoModel.swoTypeName}");
+                        if(widget.mySwoModel.swoTypeName == "IQC") {
 
+                        }
                       },
                       child: Container(
                         decoration: BoxDecoration(

@@ -6,6 +6,7 @@ import 'package:ttl_sales_and_rental/app_data.dart';
 import 'package:ttl_sales_and_rental/helper.dart';
 import 'package:ttl_sales_and_rental/network_helper.dart';
 import 'package:ttl_sales_and_rental/ui/screen03_pending_task.dart';
+import 'package:ttl_sales_and_rental/ui/screen_test_checklist.dart';
 
 class DashboardScreen extends StatefulWidget {
 
@@ -173,8 +174,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         Expanded(
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.push(context, Helper().createRoute(const PendingTaskScreen()));
-
+                              //Navigator.push(context, Helper().createRoute(const PendingTaskScreen()));
+                              Navigator.push(context, Helper().createRoute(const ScreenTestChecklist()));
                               /*
                               Navigator.of(context).push(
                                 MaterialPageRoute(builder: (context) => const PendingTaskScreen()),
